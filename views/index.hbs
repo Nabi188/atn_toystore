@@ -1,2 +1,27 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+
+
+<div class="container-fluid">
+    <h1 class="text-center px-4 mt-5">Product List</h1>
+    <div class="row mt-4">
+        {{#each productList}}
+            <div class="col-md-3">
+                <div class="card border-0">
+                    <div class="card-body text-center">
+                        <img src="{{image}}" alt="Product Image" class="img-fluid mb-3">
+                        <a class="fs-6 text-center grey-text text-decoration-none">{{category_id}}</a>
+                        <h5 class="card-title">{{name}}</h5>
+                        <p class="card-text">Description: {{description}}</p>
+                        <h5 class="text-success">$ {{price}}</h5>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-success"> <i class="fa-solid fa-cart-shopping me-2"></i>  View Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+
+
