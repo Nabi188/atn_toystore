@@ -42,16 +42,22 @@ router.post('/add', async (req, res) => {
 //step1: render "Edit product" form for user to input data
 router.get('/edit/:id', async (req, res) => {
     var id = req.params.id;
-    var products = await StudentModel.findById(id);
-    res.render('student/edit', {products});
+    var products = await ProductModel.findById(id);
+    res.render('admin/edit', {products});
 })
 
 //step2: receive input data from "Edit product" form and update to database
 router.post('/edit/:id', async (req, res) => {
     var id = req.params.id;
-    var students = req.body;
-    await StudentModel.findByIdAndUpdate(id, students);
-    res.redirect('/student');
+    var products = req.body;
+    await ProductModel.findByIdAndUpdate(id, products);
+    res.redirect('/admin');
+})
+
+router.get('/detail/:id', async (req, res) => {
+    var id = req.params.id;
+    var products = await ProductModel.findById(id).populate('categories');
+    res.render('detail', {products});
 })
 
 

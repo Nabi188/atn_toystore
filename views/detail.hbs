@@ -1,0 +1,29 @@
+<div class="container px-4 px-lg-5 my-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-md-5">
+            <img class=" mb-5 mb-md-0 img-thumbnail" src="{{products.image}}" alt="Product Image"/>
+        </div>
+        <div class="col-md-6">
+            <a class="lead">{{products.category_id}}</a>
+            <h2 class="fw-bolder text-primary">{{products.name}}</h2>
+            <small>SKU: {{products.sku}}</small>
+            <div class="fs-5 mt-4 mb-3">
+                <span class="text-grey fs-5">{{products.description}}</span>
+            </div>
+            <div class="fs-5 mb-3">
+                <span class="text-success fs-4">${{products.price}}</span>
+            </div>
+
+
+
+            <div class="d-flex">
+                <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1"
+                       style="max-width: 5rem"/>
+                <a class="btn btn-success flex-shrink-0" href="/thankyou" role=button">
+                    <i class="bi-cart-fill me-1"></i>
+                    Order
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

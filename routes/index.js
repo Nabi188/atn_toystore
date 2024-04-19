@@ -11,6 +11,14 @@ router.get('/', async (req, res) => {
   res.render('index', {products, categories, title: 'ATN Store'});
 });
 
+router.get('/detail/:id', async (req, res) => {
+  var id = req.params.id;
+  var products = await ProductModel.findById(id);
+  res.render('detail', {products});
+})
 
+router.get('/thankyou', (req, res) => {
+    res.render('thankyou');
+})
 
 module.exports = router;

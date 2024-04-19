@@ -1,51 +1,51 @@
-<div class="container-sm">
+<div class="container-sm pt-5" style="width: 700px">
     <div class="row justify-content-center">
         <div class="card">
             <div class="card-header">
                 <h1 class="text-center my-3 text-success">Edit Product</h1>
             </div>
             <div class="card-body">
-                <form action="/admin/add" method="POST" class="needs-validation" novalidate>
+
+                <form action="/admin/edit/{{products._id}}" method="POST" class="needs-validation" novalidate>
                     <div class="mb-3">
-                        <label for="id" class="form-label">SKU</label>
-                        <input type="text" class="form-control" id="id" name="id" value="{{products.sku}}" required>
+                        <label for="sku" class="text-primary fw-bold form-label">SKU</label>
+                        <input type="text" class="form-control" id="sku" name="sku" value="{{products.sku}}" required>
                         <div class="invalid-feedback">Please provide a valid SKU.</div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="name" class="form-label">Product Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <label for="name"  class="text-primary fw-bold form-label">Product Name</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{products.name}}"
+                               required>
                         <div class="invalid-feedback">Please provide product name.</div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="description" class="form-label">Product Description</label>
-                        <input type="text" class="form-control" id="description" name="description" required>
+                        <label for="description"  class="text-primary fw-bold form-label">Product Description</label>
+                        <input type="text" class="form-control" id="description" name="description"
+                               value="{{products.description}}" required>
                         <div class="invalid-feedback">Please provide product description</div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="birthYear" class="form-label">Price</label>
-                        <input type="number" class="form-control" id="price" name="price" min="1" required>
+                        <label for="price"  class="text-primary fw-bold form-label">Price</label>
+                        <input type="number" class="form-control" id="price" name="price" min="1"
+                               value="{{products.price}}" required>
                         <div class="invalid-feedback">Please provide product price.</div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="img" class="form-label">Image</label>
-                        <input type="url" class="form-control" id="img" name="img" required>
+                        <label for="image"  class="text-primary fw-bold form-label">Image</label>
+                        <div class="d-flex justify-content-center">
+                            <img src="{{products.image}}" width="200px" alt="Product Image">
+                        </div>
+                        <input type="url" class="form-control" id="image" name="image" value="{{products.image}}"
+                               required>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="city" class="form-label">City</label>
-                        <select class="form-select" name="city" id="city" required>
-                            {{#each categories}}
-                                <option value="{{name}}">{{name}}</option>
-                            {{/each}}
-                        </select>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary mt-2">Edit Product</button>
                     </div>
-
-
-                    <button type="submit" class="btn btn-primary">Add Product</button>
                 </form>
             </div>
         </div>
