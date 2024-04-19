@@ -1,8 +1,22 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Bogle", Helvetica, Arial, sans-serif;
+  font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+  font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif
+}
+
+p {
+  font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+h5{
+  font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
 }

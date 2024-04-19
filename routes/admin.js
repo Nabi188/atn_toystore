@@ -4,8 +4,8 @@ const ProductModel = require('../models/ProductModel');
 const CategoryModel = require('../models/CategoryModel');
 
 router.get('/', async (req, res) => {
-    const productList = await ProductModel.find({});
-    res.render('admin/index', {productList, title: 'ATN Store'});
+    const products = await ProductModel.find({});
+    res.render('admin/index', {products, title: 'ATN Store'});
 });
 
 //DELETE feature
@@ -24,19 +24,36 @@ router.get('/delete-all', async (req, res) => {
 
 
 
-//step1: render "Add student" form for user to input data
+//step1: render "Add product" form for user to input data
 router.get('/add', async (req, res) => {
-    var categories = await CategoryModel.find({});
+    const categories = await CategoryModel.find({});
     res.render('admin/add', {categories});
 })
 
-//step2: receive input data from "Add student" form and add to database
+//step2: receive input data from "Add product" form and add to database
 router.post('/add', async (req, res) => {
     //get input data from form
-    var student = req.body;
+    const product = req.body;
     //add data to database
-    await StudentModel.create(student);
+    await ProductModel.create(product);
+    res.redirect('/admin');
+})
+
+//step1: render "Edit product" form for user to input data
+router.get('/edit/:id', async (req, res) => {
+    var id = req.params.id;
+    var products = await StudentModel.findById(id);
+    res.render('student/edit', {products});
+})
+
+//step2: receive input data from "Edit product" form and update to database
+router.post('/edit/:id', async (req, res) => {
+    var id = req.params.id;
+    var students = req.body;
+    await StudentModel.findByIdAndUpdate(id, students);
     res.redirect('/student');
 })
+
+
 
 module.exports = router;
