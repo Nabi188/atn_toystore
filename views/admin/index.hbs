@@ -3,6 +3,7 @@
         <a class="btn btn-primary me-2" href="/admin/add">Add new product</a>
         <a class="btn btn-success" href="/admin/deleteall"
            onclick="return confirm('Are you sure you want to delete all students?');">Delete all products</a>
+        <a class="btn btn-primary" href="/admin/sortprice">Sort by price</a>
     </div>
 </div>
 
@@ -10,29 +11,29 @@
     <table class="table table-bordered table-striped">
         <thead class="table-light text-center">
         <tr>
-            <th class="align-middle bg-primary text-white">SKU</th>
-            <th class="align-middle bg-primary text-white">Product Name</th>
-            <th class="align-middle bg-primary text-white">Category</th>
-            <th class="align-middle bg-primary text-white">Description</th>
+            <th class="align-middle bg-primary text-white col-1">SKU</th>
+            <th class="align-middle bg-primary text-white col-2">Product Name</th>
+            <th class="align-middle bg-primary text-white col-1">Category</th>
+            <th class="align-middle bg-primary text-white col-3">Description</th>
             <th class="align-middle bg-primary text-white">Image</th>
-            <th class="align-middle bg-primary text-white">Price</th>
-            <th class="align-middle bg-primary text-white">Menu</th>
+            <th class="align-middle bg-primary text-white col-1">Price</th>
+            <th class="align-middle bg-primary text-white col-2">Menu</th>
         </tr>
         </thead>
         <tbody>
         {{#each products}}
             <tr>
-                <td class="align-middle text-center">{{sku}}</td>
-                <td class="align-middle text-center">{{name}}</td>
-                <td class="align-middle text-center">{{category_id}}</td>
-                <td class="align-middle text-center">{{description}}</td>
-                <td class="align-middle text-center d-flex justify-content-center">
+                <td class="align-middle text-center col-1">{{sku}}</td>
+                <td class="align-middle text-center col-2">{{name}}</td>
+                <td class="align-middle text-center col-1">{{category_id}}</td>
+                <td class="align-middle text-center col-3">{{description}}</td>
+                <td class="align-middle text-center d-flex justify-content-center ">
                     <a href="/detail/{{_id}}">
-                        <img src="{{img}}" width="100" height="100" alt="student image">
+                        <img src="{{image}}" width="100" height="100" alt="product image">
                     </a>
                 </td>
-                <td class="align-middle text-center">{{price}}</td>
-                <td class="align-middle text-center"> <!-- Center align content horizontally -->
+                <td class="align-middle text-center fw-bold text-success col-1">$ {{price}}</td>
+                <td class="align-middle text-center col-2"> <!-- Center align content horizontally -->
                     <div class="d-flex justify-content-center align-items-center">
                         <!-- Center buttons vertically and horizontally -->
                         <a class="btn btn-success me-2" href="/detail/{{_id}}">Detail</a>

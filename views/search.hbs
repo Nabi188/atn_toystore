@@ -1,0 +1,28 @@
+{{!-- Search Page --}}
+<div class="container mt-5">
+    {{#if products.length}}
+        <h2 class="text-center text-primary">Search Results: {{keyword}}</h2>
+        <div class="row pt-3">
+            {{#each products}}
+                <div class="col-md-3 my-3">
+                    <div class="card border-1">
+                        <div class="card-body text-center">
+                            <img src="{{image}}" alt="Product Image" class="img-fluid mb-3">
+                            <a class="fs-6 text-center grey-text text-decoration-none">{{category_id}}</a>
+                            <h5 class="card-title
+                        ">{{name}}</h5>
+                            <p class="card-text">Description: {{description}}</p>
+                            <h5 class="text-success">$ {{price}}</h5>
+                        </div>
+                        <div class="card-footer text-center border-0">
+                            <a href="/detail/{{_id}}" class="btn btn-outline-primary"><i
+                                    class="fa-solid fa-cart-shopping me-2"></i> View Detail</a>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <h2>No results found.</h2>
+    {{/if}}
+</div>

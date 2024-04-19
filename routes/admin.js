@@ -41,23 +41,29 @@ router.post('/add', async (req, res) => {
 
 //step1: render "Edit product" form for user to input data
 router.get('/edit/:id', async (req, res) => {
-    var id = req.params.id;
-    var products = await ProductModel.findById(id);
+    const id = req.params.id;
+    const products = await ProductModel.findById(id);
     res.render('admin/edit', {products});
 })
 
 //step2: receive input data from "Edit product" form and update to database
 router.post('/edit/:id', async (req, res) => {
-    var id = req.params.id;
-    var products = req.body;
+    const id = req.params.id;
+    const products = req.body;
     await ProductModel.findByIdAndUpdate(id, products);
     res.redirect('/admin');
 })
 
 router.get('/detail/:id', async (req, res) => {
-    var id = req.params.id;
-    var products = await ProductModel.findById(id).populate('categories');
+    const id = req.params.id;
+    const products = await ProductModel.findById(id).populate('categories');
     res.render('detail', {products});
+})
+
+router.get('/sortprice', async (req, res) => {
+    const products = await ProductModel.find().sort({price: 1});
+    console.log(products);
+    res.render('admin/index', {products});
 })
 
 
