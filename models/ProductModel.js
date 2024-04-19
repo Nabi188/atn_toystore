@@ -15,6 +15,7 @@ const ProductSchema = mongoose.Schema(
         },
         price: {
             type: Number,
+            min: 1
         },
         category_id: {
             type: mongoose.Schema.Types.ObjectId,

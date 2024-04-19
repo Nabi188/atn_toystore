@@ -3,7 +3,15 @@
         <a class="btn btn-primary me-2" href="/admin/add">Add new product</a>
         <a class="btn btn-success" href="/admin/deleteall"
            onclick="return confirm('Are you sure you want to delete all students?');">Delete all products</a>
-        <a class="btn btn-primary" href="/admin/sortprice">Sort by price</a>
+        <div class="dropdown text-end">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Sort by
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="/admin/sortprice/asc">price ascending</a></li>
+                <li><a class="dropdown-item" href="/admin/sortprice/dsc">price descending</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 
