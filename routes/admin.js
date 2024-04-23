@@ -56,7 +56,7 @@ router.post('/edit/:id', async (req, res) => {
 
 router.get('/detail/:id', async (req, res) => {
     const id = req.params.id;
-    const products = await ProductModel.findById(id).populate('categories');
+    const products = await ProductModel.findById(id).populate('category_id');
     res.render('detail', {products});
 })
 
