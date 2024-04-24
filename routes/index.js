@@ -6,8 +6,8 @@ const CategoryModel = require('../models/CategoryModel');
 router.get('/', async (req, res) => {
   const products = await ProductModel.find({});
   const categories = await CategoryModel.find({});
-  console.log(products);
-  console.log(categories)
+  // console.log(products);
+  // console.log(categories)
   res.render('index', {products, categories, title: 'ATN Store'});
 });
 
@@ -23,9 +23,21 @@ router.get('/thankyou', (req, res) => {
 
 //search by name
 router.post('/search', async (req, res) => {
-  let keyword = req.body.keyword;
-  let search_products = await ProductModel.find({name: new RegExp(keyword, 'i')});
+  const keyword = req.body.keyword;
+  const search_products = await ProductModel.find({name: new RegExp(keyword, 'i')});
   res.render('search', {products: search_products});
+})
+
+router.get('/sortprice/asc', async (req, res) => {
+    const products = await ProductModel.find().sort({price: 1});
+    console.log(products);
+    res.render('index', {products});
+})
+
+router.get('/sortprice/dsc', async (req, res) => {
+    const products = await ProductModel.find().sort({price: -1});
+    console.log(products);
+    res.render('index', {products});
 })
 
 module.exports = router;

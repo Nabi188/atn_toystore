@@ -1,5 +1,15 @@
 <div class="container-fluid">
     <div class="row mt-4">
+        <h1 class="text-center text-primary"> ATN Toy Store</h1>
+        <div>
+            <button class="btn btn-outline-secondary dropdown-toggle align-items-end" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Sort
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="/sortprice/asc">Sort by price ascending</a></li>
+                <li><a class="dropdown-item" href="/sortprice/dsc">Sort by price descending</a></li>
+            </ul>
+        </div>
         {{#each products}}
             <div class="col-md-3 my-3">
                 <div class="card border-1">

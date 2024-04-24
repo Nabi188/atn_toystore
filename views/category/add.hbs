@@ -1,0 +1,36 @@
+<div class="container-sm pt-5" style="width: 700px">
+    <div class="row justify-content-center">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="text-center my-3 text-primary">Add New Category</h1>
+            </div>
+            <div class="card-body">
+                <form action="/category/add" method="POST" class="needs-validation">
+
+                    <div class="mb-3">
+                        <label for="name"  class="text-primary fw-bold form-label">Category Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                        <div class="invalid-feedback">Please provide category name.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description"  class="text-primary fw-bold form-label">Category Description</label>
+                        <input type="text" class="form-control" id="description" name="description" required>
+                        <div class="invalid-feedback">Please provide category description</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image"  class="text-primary fw-bold form-label">Image</label>
+                        <input type="url" class="form-control" id="image" name="image" required>
+                        <div class="invalid-feedback">Please provide category image</div>
+                    </div>
+
+
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary">Add Category</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

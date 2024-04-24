@@ -60,8 +60,14 @@ router.get('/detail/:id', async (req, res) => {
     res.render('detail', {products});
 })
 
-router.get('/sortprice', async (req, res) => {
+router.get('/sortprice/asc', async (req, res) => {
     const products = await ProductModel.find().sort({price: 1});
+    console.log(products);
+    res.render('admin/index', {products});
+})
+
+router.get('/sortprice/dsc', async (req, res) => {
+    const products = await ProductModel.find().sort({price: -1});
     console.log(products);
     res.render('admin/index', {products});
 })
