@@ -2,11 +2,11 @@
     <div class="row justify-content-center">
         <div class="card">
             <div class="card-header">
-                <h1 class="text-center my-3 text-success">Edit Product</h1>
+                <h1 class="text-center my-3 text-primary">Edit Product</h1>
             </div>
             <div class="card-body">
 
-                <form action="/admin/edit/{{products._id}}" method="POST" class="needs-validation" novalidate>
+                <form action="/admin/edit/{{products._id}}" method="POST" class="needs-validation">
                     <div class="mb-3">
                         <label for="sku" class="text-primary fw-bold form-label">SKU</label>
                         <input type="text" class="form-control" id="sku" name="sku" value="{{products.sku}}" required>

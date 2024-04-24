@@ -1,0 +1,41 @@
+<div class="container-sm pt-5" style="width: 700px">
+    <div class="row justify-content-center">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="text-center my-3 text-primary">Edit Category</h1>
+            </div>
+            <div class="card-body">
+
+                <form action="/category/edit/{{categories._id}}" method="POST" class="needs-validation">
+
+                    <div class="mb-3">
+                        <label for="name"  class="text-primary fw-bold form-label">Category Name</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{categories.name}}"
+                               required>
+                        <div class="invalid-feedback">Please provide category name.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description"  class="text-primary fw-bold form-label">Category Description</label>
+                        <input type="text" class="form-control" id="description" name="description"
+                               value="{{categories.description}}" required>
+                        <div class="invalid-feedback">Please provide category description</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image"  class="text-primary fw-bold form-label">Image</label>
+                        <div class="d-flex justify-content-center">
+                            <img src="{{categories.image}}" width="200px" alt="Category Image">
+                        </div>
+                        <input type="url" class="form-control" id="image" name="image" value="{{categories.image}}"
+                               required>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary mt-2">Edit Category</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -34,4 +34,20 @@ router.post('/add', async (req, res) => {
     res.redirect('/category');
 })
 
+//step1: render "Edit product" form for user to input data
+router.get('/edit/:id', async (req, res) => {
+    const id = req.params.id;
+    const categories = await CategoryModel.findById(id);
+    res.render('category/edit', {categories});
+})
+
+//step2: receive input data from "Edit product" form and update to database
+router.post('/edit/:id', async (req, res) => {
+    const id = req.params.id;
+    const categories = req.body;
+    await CategoryModel.findByIdAndUpdate(id, categories)
+    res.redirect('/category');
+})
+
+
 module.exports = router;
