@@ -4,7 +4,7 @@ const ProductModel = require('../models/ProductModel');
 const CategoryModel = require('../models/CategoryModel');
 
 router.get('/', async (req, res) => {
-    const products = await ProductModel.find({});
+    const products = await ProductModel.find({}).populate('category_id');
     res.render('admin/index', {products, title: 'ATN Store'});
 });
 
